@@ -1,16 +1,16 @@
 import { Actor, HttpAgent } from "@dfinity/agent";
 
 // Imports and re-exports candid interface
-import { idlFactory } from './origyn_todo.did.js';
-export { idlFactory } from './origyn_todo.did.js';
+import { idlFactory } from './core_project_assets.did.js';
+export { idlFactory } from './core_project_assets.did.js';
 // CANISTER_ID is replaced by webpack based on node environment
-export const canisterId = process.env.ORIGYN_TODO_CANISTER_ID;
+export const canisterId = process.env.CORE_PROJECT_ASSETS_CANISTER_ID;
 
 /**
  * 
  * @param {string | import("@dfinity/principal").Principal} canisterId Canister ID of Agent
  * @param {{agentOptions?: import("@dfinity/agent").HttpAgentOptions; actorOptions?: import("@dfinity/agent").ActorConfig}} [options]
- * @return {import("@dfinity/agent").ActorSubclass<import("./origyn_todo.did.js")._SERVICE>}
+ * @return {import("@dfinity/agent").ActorSubclass<import("./core_project_assets.did.js")._SERVICE>}
  */
  export const createActor = (canisterId, options) => {
   const agent = new HttpAgent({ ...options?.agentOptions });
@@ -32,7 +32,7 @@ export const canisterId = process.env.ORIGYN_TODO_CANISTER_ID;
 };
   
 /**
- * A ready-to-use agent for the origyn_todo canister
- * @type {import("@dfinity/agent").ActorSubclass<import("./origyn_todo.did.js")._SERVICE>}
+ * A ready-to-use agent for the core_project_assets canister
+ * @type {import("@dfinity/agent").ActorSubclass<import("./core_project_assets.did.js")._SERVICE>}
  */
- export const origyn_todo = createActor(canisterId);
+ export const core_project_assets = createActor(canisterId);

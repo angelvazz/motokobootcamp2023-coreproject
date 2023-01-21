@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Note from "./Note";
-import CreateArea from "./CreateArea";
-import { origyn_todo } from "../../../declarations/origyn_todo";
+import React, { useEffect, useState } from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import Note from './Note';
+import CreateArea from './CreateArea';
+import { core_project } from '../../../declarations/core_project';
 
 function App() {
   const [notes, setNotes] = useState([]);
 
   function addNote(newNote) {
-    setNotes(prevNotes => {
-      origyn_todo.createNote(newNote.title, newNote.content)
-      return [ newNote, ...prevNotes ];
+    setNotes((prevNotes) => {
+      core_project.createNote(newNote.title, newNote.content);
+      return [newNote, ...prevNotes];
     });
   }
 
   useEffect(() => {
-   fetchData()
-  }, [])
-  
+    fetchData();
+  }, []);
+
   async function fetchData() {
-   const notesArray = await origyn_todo.readNotes();
-   setNotes(notesArray);
+    const notesArray = await core_project.readNotes();
+    setNotes(notesArray);
   }
 
-
   function deleteNote(id) {
-    origyn_todo.removeNote(id);
-    setNotes(prevNotes => {
+    core_project.removeNote(id);
+    setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {
         return index !== id;
       });
