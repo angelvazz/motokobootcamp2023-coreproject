@@ -1,23 +1,24 @@
-import React, { useState } from "react";
-import AddIcon from "@material-ui/icons/Add";
-import Fab from "@material-ui/core/Fab";
-import Zoom from "@material-ui/core/Zoom";
+import React, { useState } from 'react';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
 
 function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
 
   const [note, setNote] = useState({
-    title: "",
-    content: ""
+    title: '',
+    content: '',
   });
 
   function handleChange(event) {
     const { name, value } = event.target;
 
-    setNote(prevNote => {
+    setNote((prevNote) => {
       return {
         ...prevNote,
-        [name]: value
+        [name]: value,
       };
     });
   }
@@ -25,8 +26,8 @@ function CreateArea(props) {
   function submitNote(event) {
     props.onAdd(note);
     setNote({
-      title: "",
-      content: ""
+      title: '',
+      content: '',
     });
     event.preventDefault();
   }
@@ -52,12 +53,12 @@ function CreateArea(props) {
           onClick={expand}
           onChange={handleChange}
           value={note.content}
-          placeholder="Make a note..."
+          placeholder="Create a new proposals..."
           rows={isExpanded ? 3 : 1}
         />
         <Zoom in={isExpanded}>
           <Fab onClick={submitNote}>
-            <AddIcon />
+            <AddCircleOutlineIcon />
           </Fab>
         </Zoom>
       </form>

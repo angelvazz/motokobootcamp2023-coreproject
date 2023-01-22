@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import Note from './Note';
-import CreateArea from './CreateArea';
+import Note from '../components/Note';
 import { core_project } from '../../../declarations/core_project';
 
-function App() {
+function Proposals() {
   const [notes, setNotes] = useState([]);
 
   function addNote(newNote) {
@@ -35,8 +32,6 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <CreateArea onAdd={addNote} />
       {notes.map((noteItem, index) => {
         return (
           <Note
@@ -48,9 +43,8 @@ function App() {
           />
         );
       })}
-      <Footer />
     </div>
   );
 }
 
-export default App;
+export default Proposals;
