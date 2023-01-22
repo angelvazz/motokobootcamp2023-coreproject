@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Note from '../components/Note';
+import Note from '../components/Proposal';
 import { core_project } from '../../../declarations/core_project';
-import { Typography } from '../../../../node_modules/@mui/material/index';
 
 function Proposals() {
   const [notes, setNotes] = useState([]);
