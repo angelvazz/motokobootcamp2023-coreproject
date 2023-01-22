@@ -5,12 +5,11 @@
 }
 html {
   font-family: 'Montserrat', sans-serif;
+  height: 100vh;
 }
 
 body {
   height: 100vh;
-  background-size: auto;
-  background-attachment: fixed;
 
   background: rgb(0, 44, 98);
   background: -moz-linear-gradient(
@@ -127,4 +126,20 @@ form.create-note button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+.allproposals {
+  display: grid;
+  justify-content: center;
+  max-height: 60vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.h1-proposals {
+  text-align: center;
+  font-size: 72px;
+  background: -webkit-linear-gradient(rgb(0, 174, 255), rgb(146, 0, 71));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
