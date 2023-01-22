@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Note from '../components/Proposal';
+import Proposal from '../components/Proposals';
 import { core_project } from '../../../declarations/core_project';
 
-function Proposals() {
+function AllProposals() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function Proposals() {
       <div className="allproposals">
         {notes.map((noteItem, index) => {
           return (
-            <Note
+            <Proposal
               key={index}
               id={index}
               title={noteItem.title}
@@ -44,4 +44,4 @@ function Proposals() {
   );
 }
 
-export default Proposals;
+export default AllProposals;

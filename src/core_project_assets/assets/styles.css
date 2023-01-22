@@ -147,4 +147,20 @@ form.create-proposal button {
   background: -webkit-linear-gradient(rgb(0, 174, 255), rgb(146, 0, 71));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.vote-proposal-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.vote-proposal {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 35vw;
 }
