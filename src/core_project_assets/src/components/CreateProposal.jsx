@@ -4,7 +4,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 
-function CreateArea(props) {
+function CreateProposal(props) {
   const [isExpanded, setExpanded] = useState(false);
 
   const [note, setNote] = useState({
@@ -38,6 +38,7 @@ function CreateArea(props) {
 
   return (
     <div>
+      <h1 className="h1-proposals">Create Proposal</h1>
       <form className="create-proposal">
         {isExpanded && (
           <input
@@ -54,7 +55,7 @@ function CreateArea(props) {
           onChange={handleChange}
           value={note.content}
           placeholder="Create a new proposals..."
-          rows={isExpanded ? 3 : 1}
+          rows={isExpanded ? 15 : 1}
         />
         <Zoom in={isExpanded}>
           <Fab onClick={submitNote}>
@@ -66,4 +67,4 @@ function CreateArea(props) {
   );
 }
 
-export default CreateArea;
+export default CreateProposal;
