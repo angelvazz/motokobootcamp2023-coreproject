@@ -91,7 +91,7 @@ footer p {
 
 form.create-proposal {
   position: relative;
-  width: 480px;
+  width: 50vw;
   margin: 30px auto 20px auto;
   background: #fff;
   padding: 15px;
