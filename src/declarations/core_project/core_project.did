@@ -4,6 +4,7 @@ type Proposal =
    owner: text;
    time: text;
    title: text;
+   votes: nat;
  };
 service : {
   balanceOf: (principal) -> (nat) query;
@@ -14,4 +15,5 @@ service : {
   removeProposal: (nat) -> () oneway;
   seeProposal: (nat) -> (vec Proposal) query;
   transfer: (principal, nat) -> (text);
+  voteProposal: (nat) -> () oneway;
 }

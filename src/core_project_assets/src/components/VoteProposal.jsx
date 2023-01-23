@@ -4,6 +4,7 @@ import { Button } from '@mui/material/index';
 
 function VoteProposal(props) {
   const [notes, setNotes] = useState([]);
+  const [votes, setVotes] = useState(0);
   const urlId = window.location.pathname;
   const indexUrl = urlId.slice(11);
   const numberUrl = parseInt(indexUrl);
@@ -29,7 +30,9 @@ function VoteProposal(props) {
             </React.Fragment>
           ))}
 
-          <Button variant="contained">Vote</Button>
+          <Button onClick={() => setVotes(votes + 1)} variant="contained">
+            Vote
+          </Button>
         </div>
         <div className="vote-proposal">
           <div className="vote-proposal-owner">
@@ -44,8 +47,18 @@ function VoteProposal(props) {
               </React.Fragment>
             ))}
           </div>
-          <h2>Created:</h2>
-          <h2>Votes</h2>
+          <div className="vote-proposal-owner">
+            {notes.map((e, i) => (
+              <React.Fragment key={i}>
+                <h2>Created:</h2>
+                <h2>{e.time}</h2>
+              </React.Fragment>
+            ))}
+          </div>
+          <div className="vote-proposal-owner">
+            <h2>Votes</h2>
+            <h2>{votes}</h2>
+          </div>
         </div>
       </div>
     </div>

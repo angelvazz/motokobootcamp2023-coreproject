@@ -3,6 +3,7 @@ export const idlFactory = ({ IDL }) => {
     'title' : IDL.Text,
     'content' : IDL.Text,
     'owner' : IDL.Text,
+    'votes' : IDL.Nat,
     'time' : IDL.Text,
   });
   return IDL.Service({
@@ -14,6 +15,7 @@ export const idlFactory = ({ IDL }) => {
     'removeProposal' : IDL.Func([IDL.Nat], [], ['oneway']),
     'seeProposal' : IDL.Func([IDL.Nat], [IDL.Vec(Proposal)], ['query']),
     'transfer' : IDL.Func([IDL.Principal, IDL.Nat], [IDL.Text], []),
+    'voteProposal' : IDL.Func([IDL.Nat], [], ['oneway']),
   });
 };
 export const init = ({ IDL }) => { return []; };
