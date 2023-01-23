@@ -164,3 +164,8 @@ form.create-proposal button {
   padding: 10px;
   width: 35vw;
 }
+
+.vote-proposal-owner {
+  display: flex;
+  justify-content: space-between;
+}

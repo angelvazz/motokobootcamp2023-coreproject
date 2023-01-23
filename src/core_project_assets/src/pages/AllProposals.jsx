@@ -10,13 +10,13 @@ function AllProposals() {
   }, []);
 
   async function fetchData() {
-    const notesArray = await core_project.readNotes();
+    const notesArray = await core_project.readProposal();
     setNotes(notesArray);
   }
 
   //ToDo changed delete to Vote
   function deleteNote(id) {
-    core_project.removeNote(id);
+    core_project.removeProposal(id);
     setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {
         return index !== id;
