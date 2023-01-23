@@ -5,7 +5,6 @@
 }
 html {
   font-family: 'Montserrat', sans-serif;
-  height: 100vh;
 }
 
 body {
@@ -168,4 +167,9 @@ form.create-proposal button {
 .vote-proposal-owner {
   display: flex;
   justify-content: space-between;
+}
+
+.dashboard {
+  display: grid;
+  justify-content: center;
 }

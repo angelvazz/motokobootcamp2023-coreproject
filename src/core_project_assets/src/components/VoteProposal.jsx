@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { core_project } from '../../../declarations/core_project';
 import { Button } from '@mui/material/index';
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 function VoteProposal(props) {
   const [notes, setNotes] = useState([]);
