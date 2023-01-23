@@ -2,11 +2,16 @@ type Proposal =
  record {
    content: text;
    owner: text;
+   time: text;
    title: text;
  };
 service : {
+  balanceOf: (principal) -> (nat) query;
   createProposal: (text, text) -> () oneway;
+  getSymbol: () -> (text) query;
+  payOut: () -> (text);
   readProposal: () -> (vec Proposal) query;
   removeProposal: (nat) -> () oneway;
   seeProposal: (nat) -> (vec Proposal) query;
+  transfer: (principal, nat) -> (text);
 }

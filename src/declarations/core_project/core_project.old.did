@@ -1,10 +1,13 @@
-type Note = 
+type Proposal = 
  record {
    content: text;
+   owner: text;
+   time: text;
    title: text;
  };
 service : {
-  createNote: (text, text) -> () oneway;
-  readNotes: () -> (vec Note) query;
-  removeNote: (nat) -> () oneway;
+  createProposal: (text, text) -> () oneway;
+  readProposal: () -> (vec Proposal) query;
+  removeProposal: (nat) -> () oneway;
+  seeProposal: (nat) -> (vec Proposal) query;
 }

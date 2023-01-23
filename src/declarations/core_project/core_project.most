@@ -1,6 +1,7 @@
 // Version: 1.0.0
 type List<T> = ?(T, List<T>);
-type Proposal = {content : Text; owner : Text; title : Text};
+type Proposal = {content : Text; owner : Text; time : Text; title : Text};
 actor {
+  stable var balancesEntries : [(Principal, Nat)];
   stable var proposal : ?(Proposal, List<Proposal>)
 };
