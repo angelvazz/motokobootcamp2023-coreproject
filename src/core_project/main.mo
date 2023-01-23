@@ -1,11 +1,12 @@
 import Debug "mo:base/Debug";
 import List "mo:base/List";
 import Principal "mo:base/Principal";
-import Int = "mo:base/Int";
-import Time = "mo:base/Time";
+import Int "mo:base/Int";
+import Time "mo:base/Time";
 import HashMap "mo:base/HashMap";
 import Result "mo:base/Result";
 import Iter "mo:base/Iter";
+import Array "mo:base/Array";
 
 actor Dapp {
   public type Proposal = {
@@ -13,6 +14,7 @@ actor Dapp {
     content : Text;
     owner : Text;
     time : Text;
+    votes : Nat;
   };
 
   stable var proposal : List.List<Proposal> = List.nil<Proposal>();
@@ -21,12 +23,13 @@ actor Dapp {
     let owner = msg.caller;
     let now = Time.now();
     let elapsedSeconds = now / 1000_000_000;
+    let numVotes = 0;
     let newProposal : Proposal = {
       title = titleText;
       content = contentText;
       owner = Principal.toText(owner);
-      time = Int.toText(elapsedSeconds)
-
+      time = Int.toText(elapsedSeconds);
+      votes = numVotes;
     };
     proposal := List.push(newProposal, proposal);
     Debug.print(debug_show (proposal));
@@ -45,6 +48,11 @@ actor Dapp {
     let listFront = List.take(proposal, id);
     let listBack = List.drop(proposal, id + 1);
     proposal := List.append(listFront, listBack);
+  };
+
+  public func voteProposal(id : Nat) {
+    let result : [Proposal] = List.toArray(proposal);
+    let some = Array.map<Nat, Nat>([result[id].votes], func x = x + 1);
   };
 
   let owner : Principal = Principal.fromText("kvewd-ktbx3-pgqog-ug7kj-crdos-uxb6z-zc5i6-bgryf-gpdii-zdhid-xqe");
@@ -75,7 +83,7 @@ actor Dapp {
   public shared (msg) func payOut() : async Text {
     //Debug.print(debug_show (msg.caller));
     if (balances.get(msg.caller) == null) {
-      let amount = 1;
+      let amount = 10;
       let result = await transfer(msg.caller, amount);
       return result;
     } else {
